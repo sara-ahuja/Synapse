@@ -9,38 +9,222 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as CreatorRouteImport } from './routes/creator'
+import { Route as BrandRouteImport } from './routes/brand'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CreatorIndexRouteImport } from './routes/creator.index'
+import { Route as BrandIndexRouteImport } from './routes/brand.index'
+import { Route as CreatorSettingsRouteImport } from './routes/creator.settings'
+import { Route as CreatorPortfolioRouteImport } from './routes/creator.portfolio'
+import { Route as CreatorMessagesRouteImport } from './routes/creator.messages'
+import { Route as CreatorCampaignsRouteImport } from './routes/creator.campaigns'
+import { Route as CreatorAnalyticsRouteImport } from './routes/creator.analytics'
+import { Route as BrandSettingsRouteImport } from './routes/brand.settings'
+import { Route as BrandMessagesRouteImport } from './routes/brand.messages'
+import { Route as BrandCreatorsRouteImport } from './routes/brand.creators'
+import { Route as BrandCreateRouteImport } from './routes/brand.create'
+import { Route as BrandCampaignsRouteImport } from './routes/brand.campaigns'
 
+const CreatorRoute = CreatorRouteImport.update({
+  id: '/creator',
+  path: '/creator',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BrandRoute = BrandRouteImport.update({
+  id: '/brand',
+  path: '/brand',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CreatorIndexRoute = CreatorIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => CreatorRoute,
+} as any)
+const BrandIndexRoute = BrandIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => BrandRoute,
+} as any)
+const CreatorSettingsRoute = CreatorSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => CreatorRoute,
+} as any)
+const CreatorPortfolioRoute = CreatorPortfolioRouteImport.update({
+  id: '/portfolio',
+  path: '/portfolio',
+  getParentRoute: () => CreatorRoute,
+} as any)
+const CreatorMessagesRoute = CreatorMessagesRouteImport.update({
+  id: '/messages',
+  path: '/messages',
+  getParentRoute: () => CreatorRoute,
+} as any)
+const CreatorCampaignsRoute = CreatorCampaignsRouteImport.update({
+  id: '/campaigns',
+  path: '/campaigns',
+  getParentRoute: () => CreatorRoute,
+} as any)
+const CreatorAnalyticsRoute = CreatorAnalyticsRouteImport.update({
+  id: '/analytics',
+  path: '/analytics',
+  getParentRoute: () => CreatorRoute,
+} as any)
+const BrandSettingsRoute = BrandSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => BrandRoute,
+} as any)
+const BrandMessagesRoute = BrandMessagesRouteImport.update({
+  id: '/messages',
+  path: '/messages',
+  getParentRoute: () => BrandRoute,
+} as any)
+const BrandCreatorsRoute = BrandCreatorsRouteImport.update({
+  id: '/creators',
+  path: '/creators',
+  getParentRoute: () => BrandRoute,
+} as any)
+const BrandCreateRoute = BrandCreateRouteImport.update({
+  id: '/create',
+  path: '/create',
+  getParentRoute: () => BrandRoute,
+} as any)
+const BrandCampaignsRoute = BrandCampaignsRouteImport.update({
+  id: '/campaigns',
+  path: '/campaigns',
+  getParentRoute: () => BrandRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/brand': typeof BrandRouteWithChildren
+  '/creator': typeof CreatorRouteWithChildren
+  '/brand/campaigns': typeof BrandCampaignsRoute
+  '/brand/create': typeof BrandCreateRoute
+  '/brand/creators': typeof BrandCreatorsRoute
+  '/brand/messages': typeof BrandMessagesRoute
+  '/brand/settings': typeof BrandSettingsRoute
+  '/creator/analytics': typeof CreatorAnalyticsRoute
+  '/creator/campaigns': typeof CreatorCampaignsRoute
+  '/creator/messages': typeof CreatorMessagesRoute
+  '/creator/portfolio': typeof CreatorPortfolioRoute
+  '/creator/settings': typeof CreatorSettingsRoute
+  '/brand/': typeof BrandIndexRoute
+  '/creator/': typeof CreatorIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/brand/campaigns': typeof BrandCampaignsRoute
+  '/brand/create': typeof BrandCreateRoute
+  '/brand/creators': typeof BrandCreatorsRoute
+  '/brand/messages': typeof BrandMessagesRoute
+  '/brand/settings': typeof BrandSettingsRoute
+  '/creator/analytics': typeof CreatorAnalyticsRoute
+  '/creator/campaigns': typeof CreatorCampaignsRoute
+  '/creator/messages': typeof CreatorMessagesRoute
+  '/creator/portfolio': typeof CreatorPortfolioRoute
+  '/creator/settings': typeof CreatorSettingsRoute
+  '/brand': typeof BrandIndexRoute
+  '/creator': typeof CreatorIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/brand': typeof BrandRouteWithChildren
+  '/creator': typeof CreatorRouteWithChildren
+  '/brand/campaigns': typeof BrandCampaignsRoute
+  '/brand/create': typeof BrandCreateRoute
+  '/brand/creators': typeof BrandCreatorsRoute
+  '/brand/messages': typeof BrandMessagesRoute
+  '/brand/settings': typeof BrandSettingsRoute
+  '/creator/analytics': typeof CreatorAnalyticsRoute
+  '/creator/campaigns': typeof CreatorCampaignsRoute
+  '/creator/messages': typeof CreatorMessagesRoute
+  '/creator/portfolio': typeof CreatorPortfolioRoute
+  '/creator/settings': typeof CreatorSettingsRoute
+  '/brand/': typeof BrandIndexRoute
+  '/creator/': typeof CreatorIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/brand'
+    | '/creator'
+    | '/brand/campaigns'
+    | '/brand/create'
+    | '/brand/creators'
+    | '/brand/messages'
+    | '/brand/settings'
+    | '/creator/analytics'
+    | '/creator/campaigns'
+    | '/creator/messages'
+    | '/creator/portfolio'
+    | '/creator/settings'
+    | '/brand/'
+    | '/creator/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/brand/campaigns'
+    | '/brand/create'
+    | '/brand/creators'
+    | '/brand/messages'
+    | '/brand/settings'
+    | '/creator/analytics'
+    | '/creator/campaigns'
+    | '/creator/messages'
+    | '/creator/portfolio'
+    | '/creator/settings'
+    | '/brand'
+    | '/creator'
+  id:
+    | '__root__'
+    | '/'
+    | '/brand'
+    | '/creator'
+    | '/brand/campaigns'
+    | '/brand/create'
+    | '/brand/creators'
+    | '/brand/messages'
+    | '/brand/settings'
+    | '/creator/analytics'
+    | '/creator/campaigns'
+    | '/creator/messages'
+    | '/creator/portfolio'
+    | '/creator/settings'
+    | '/brand/'
+    | '/creator/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BrandRoute: typeof BrandRouteWithChildren
+  CreatorRoute: typeof CreatorRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/creator': {
+      id: '/creator'
+      path: '/creator'
+      fullPath: '/creator'
+      preLoaderRoute: typeof CreatorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/brand': {
+      id: '/brand'
+      path: '/brand'
+      fullPath: '/brand'
+      preLoaderRoute: typeof BrandRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,22 +232,139 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/creator/': {
+      id: '/creator/'
+      path: '/'
+      fullPath: '/creator/'
+      preLoaderRoute: typeof CreatorIndexRouteImport
+      parentRoute: typeof CreatorRoute
+    }
+    '/brand/': {
+      id: '/brand/'
+      path: '/'
+      fullPath: '/brand/'
+      preLoaderRoute: typeof BrandIndexRouteImport
+      parentRoute: typeof BrandRoute
+    }
+    '/creator/settings': {
+      id: '/creator/settings'
+      path: '/settings'
+      fullPath: '/creator/settings'
+      preLoaderRoute: typeof CreatorSettingsRouteImport
+      parentRoute: typeof CreatorRoute
+    }
+    '/creator/portfolio': {
+      id: '/creator/portfolio'
+      path: '/portfolio'
+      fullPath: '/creator/portfolio'
+      preLoaderRoute: typeof CreatorPortfolioRouteImport
+      parentRoute: typeof CreatorRoute
+    }
+    '/creator/messages': {
+      id: '/creator/messages'
+      path: '/messages'
+      fullPath: '/creator/messages'
+      preLoaderRoute: typeof CreatorMessagesRouteImport
+      parentRoute: typeof CreatorRoute
+    }
+    '/creator/campaigns': {
+      id: '/creator/campaigns'
+      path: '/campaigns'
+      fullPath: '/creator/campaigns'
+      preLoaderRoute: typeof CreatorCampaignsRouteImport
+      parentRoute: typeof CreatorRoute
+    }
+    '/creator/analytics': {
+      id: '/creator/analytics'
+      path: '/analytics'
+      fullPath: '/creator/analytics'
+      preLoaderRoute: typeof CreatorAnalyticsRouteImport
+      parentRoute: typeof CreatorRoute
+    }
+    '/brand/settings': {
+      id: '/brand/settings'
+      path: '/settings'
+      fullPath: '/brand/settings'
+      preLoaderRoute: typeof BrandSettingsRouteImport
+      parentRoute: typeof BrandRoute
+    }
+    '/brand/messages': {
+      id: '/brand/messages'
+      path: '/messages'
+      fullPath: '/brand/messages'
+      preLoaderRoute: typeof BrandMessagesRouteImport
+      parentRoute: typeof BrandRoute
+    }
+    '/brand/creators': {
+      id: '/brand/creators'
+      path: '/creators'
+      fullPath: '/brand/creators'
+      preLoaderRoute: typeof BrandCreatorsRouteImport
+      parentRoute: typeof BrandRoute
+    }
+    '/brand/create': {
+      id: '/brand/create'
+      path: '/create'
+      fullPath: '/brand/create'
+      preLoaderRoute: typeof BrandCreateRouteImport
+      parentRoute: typeof BrandRoute
+    }
+    '/brand/campaigns': {
+      id: '/brand/campaigns'
+      path: '/campaigns'
+      fullPath: '/brand/campaigns'
+      preLoaderRoute: typeof BrandCampaignsRouteImport
+      parentRoute: typeof BrandRoute
+    }
   }
 }
 
+interface BrandRouteChildren {
+  BrandCampaignsRoute: typeof BrandCampaignsRoute
+  BrandCreateRoute: typeof BrandCreateRoute
+  BrandCreatorsRoute: typeof BrandCreatorsRoute
+  BrandMessagesRoute: typeof BrandMessagesRoute
+  BrandSettingsRoute: typeof BrandSettingsRoute
+  BrandIndexRoute: typeof BrandIndexRoute
+}
+
+const BrandRouteChildren: BrandRouteChildren = {
+  BrandCampaignsRoute: BrandCampaignsRoute,
+  BrandCreateRoute: BrandCreateRoute,
+  BrandCreatorsRoute: BrandCreatorsRoute,
+  BrandMessagesRoute: BrandMessagesRoute,
+  BrandSettingsRoute: BrandSettingsRoute,
+  BrandIndexRoute: BrandIndexRoute,
+}
+
+const BrandRouteWithChildren = BrandRoute._addFileChildren(BrandRouteChildren)
+
+interface CreatorRouteChildren {
+  CreatorAnalyticsRoute: typeof CreatorAnalyticsRoute
+  CreatorCampaignsRoute: typeof CreatorCampaignsRoute
+  CreatorMessagesRoute: typeof CreatorMessagesRoute
+  CreatorPortfolioRoute: typeof CreatorPortfolioRoute
+  CreatorSettingsRoute: typeof CreatorSettingsRoute
+  CreatorIndexRoute: typeof CreatorIndexRoute
+}
+
+const CreatorRouteChildren: CreatorRouteChildren = {
+  CreatorAnalyticsRoute: CreatorAnalyticsRoute,
+  CreatorCampaignsRoute: CreatorCampaignsRoute,
+  CreatorMessagesRoute: CreatorMessagesRoute,
+  CreatorPortfolioRoute: CreatorPortfolioRoute,
+  CreatorSettingsRoute: CreatorSettingsRoute,
+  CreatorIndexRoute: CreatorIndexRoute,
+}
+
+const CreatorRouteWithChildren =
+  CreatorRoute._addFileChildren(CreatorRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BrandRoute: BrandRouteWithChildren,
+  CreatorRoute: CreatorRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
