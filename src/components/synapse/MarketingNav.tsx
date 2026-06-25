@@ -11,8 +11,8 @@ export function MarketingNav() {
           <nav className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
             <a href="#problem" className="hover:text-foreground transition">Why Synapse</a>
             <a href="#matchiq" className="hover:text-foreground transition">MatchIQ</a>
-            <a href="#creators" className="hover:text-foreground transition">For Creators</a>
-            <a href="#brands" className="hover:text-foreground transition">For Brands</a>
+            <Link to="/creator" className="hover:text-foreground transition">For Creators</Link>
+            <Link to="/brand" className="hover:text-foreground transition">For Brands</Link>
           </nav>
           <div className="flex items-center gap-2">
             <Button asChild variant="ghost" size="sm">
