@@ -87,8 +87,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:site", content: "@Lovable" },
       { name: "twitter:title", content: "Synapse — The infrastructure behind the creator economy" },
       { name: "twitter:description", content: "AI-powered marketplace connecting brands and creators. Discover talent, launch campaigns, and build lasting collaborations with MatchIQ." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/a81e7785-b66f-4be2-8324-d77b9c87e187/id-preview-e9d22c41--7b172938-11b7-4177-b9f3-a4f082f8805a.lovable.app-1782419447783.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/a81e7785-b66f-4be2-8324-d77b9c87e187/id-preview-e9d22c41--7b172938-11b7-4177-b9f3-a4f082f8805a.lovable.app-1782419447783.png" },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/f64a786b-2abb-443b-9c90-ac5c1035dc5a/id-preview-116a4291--7b172938-11b7-4177-b9f3-a4f082f8805a.lovable.app-1782484277169.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/f64a786b-2abb-443b-9c90-ac5c1035dc5a/id-preview-116a4291--7b172938-11b7-4177-b9f3-a4f082f8805a.lovable.app-1782484277169.png" },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
